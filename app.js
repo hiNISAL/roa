@@ -2,12 +2,11 @@ const Nia = require('./src');
 
 let nia = new Nia();
 
-function delay() {
+function sleep(time) {
   return new Promise(resolve => {
-    setTimeout(resolve, 2000);
+    setTimeout(resolve, time);
   });
 }
-
 
 nia.use(async (ctx, next) => {
   ctx.body = 'hw';
@@ -16,7 +15,7 @@ nia.use(async (ctx, next) => {
 });
 
 nia.use(async ctx => {
-  await delay();
+  await sleep(2000);
   ctx.body += '呜呜呜';
 });
 

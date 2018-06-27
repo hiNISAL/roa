@@ -7,12 +7,6 @@ const compose = require('./compose');
 
 class Application {
   constructor() {
-    this.callback = () => {};
-
-    this.context = context;
-    this.request = request;
-    this.response = response;
-
     this.middlewares = [];
   }
 
@@ -39,10 +33,10 @@ class Application {
   }
 
   createCtx(req, res) {
-    let ctx = Object.create(this.context);
+    let ctx = Object.create(context);
 
-    ctx.request = Object.create(this.request);
-    ctx.response = Object.create(this.response);
+    ctx.request = Object.create(request);
+    ctx.response = Object.create(response);
 
     ctx.request = req;
     ctx.response = res;
