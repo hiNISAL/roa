@@ -10,6 +10,8 @@ function sleep(time) {
 
 nia.use(async (ctx, next) => {
   ctx.body = 'hw';
+  ctx.response.body = 'a';
+  console.log(ctx.request.url);
   await next();
   ctx.body += '122'
 });

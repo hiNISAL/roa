@@ -15,8 +15,8 @@ class Application {
   }
 
   listen(...args) {
-    const server = http.createServer(async (req, res) => {
-      let ctx  = this.createCtx(req ,res);
+    const server = http.createServer(async (req ,res) => {
+      let ctx = this.createCtx(req, res);
 
       const cbs = this.compose(this.middlewares);
 
@@ -38,11 +38,11 @@ class Application {
     ctx.request = Object.create(request);
     ctx.response = Object.create(response);
 
-    ctx.request = req;
-    ctx.response = res;
+    ctx.request.req = req;
+    ctx.response.res = res;
 
-    ctx.req = ctx.request;
-    ctx.res = ctx.response;
+    ctx.req = req;
+    ctx.res = res;
 
     return ctx;
   }
