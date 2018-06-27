@@ -17,7 +17,7 @@ nia.use(async (ctx, next) => {
 });
 
 nia.use(async ctx => {
-  await sleep(2000);
+  await sleep(1000);
   ctx.body += '呜呜呜';
 });
 

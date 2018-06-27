@@ -1,7 +1,7 @@
 module.exports = (middlewares) => {
   return ctx => {
 
-    function dispatch(i) {
+    function patch(i) {
       let fn = middlewares[i];
 
       if (!fn) {
@@ -9,10 +9,10 @@ module.exports = (middlewares) => {
       }
 
       return Promise.resolve(fn(ctx, () => {
-        return dispatch(i + 1);
+        return patch(i + 1);
       }));
     }
 
-    return dispatch(0); 
+    return patch(0); 
   }
 }
